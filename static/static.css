@@ -81,15 +81,15 @@ body > header {
 }
 
 .elbrus:not(.active) {
-  background-image: url('static/elbrus.jpg');
+  background-image: url('elbrus.jpg');
 }
 
 .kilimanjaro:not(.active) {
-  background-image: url('static/kilimanjaro.jpg');
+  background-image: url('kilimanjaro.jpg');
 }
 
 .aconcagua:not(.active) {
-  background-image: url('static/aconcagua.jpg');
+  background-image: url('aconcagua.jpg');
 }
 
 .collapse.active {
