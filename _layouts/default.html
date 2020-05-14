@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/static/static.css" />
+    <link rel="stylesheet" href="{{ site.url }}/static/static.css" />
     <title>{{ page.title }}</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
@@ -116,9 +116,9 @@
       </div>
     </div>
     <footer>
-      <a href="/">English</a>
-      <a href="/ja">日本語</a>
-      <a href="/hu">Magyar</a>
+      <a href="{{ site.url }}/">English</a>
+      <a href="{{ site.url }}/ja">日本語</a>
+      <a href="{{ site.url }}/hu">Magyar</a>
     </footer>
   </body>
 </html>
