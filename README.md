@@ -1,2 +1,0 @@
-# climbing
-Climbing static site
