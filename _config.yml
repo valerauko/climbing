@@ -1,6 +1,1 @@
 exclude: ["LICENSE", "README.md"]
-plugins:
-  - jekyll-multiple-languages-plugin
-
-languages: ["en", "ja", "hu"]
-exclude_from_localizations: ["static"]
