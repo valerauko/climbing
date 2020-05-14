@@ -122,11 +122,11 @@ footer ul {
   flex-flow: row wrap;
 }
 
-.collapse header dd {
+footer ul li {
   padding-right: 1em;
 }
 
-.collapse header dd:not(:last-child):after {
+footer ul li:not(:last-child):after {
   content: "/";
   padding-left: 1em;
 }
