@@ -1,4 +1,1 @@
-plugins:
-  - jekyll-multiple-languages-plugin
-
 languages: ["en", "hu", "ja"]
