@@ -115,3 +115,18 @@ body > header {
   max-height: 15em;
   background: rgba(0, 0, 0, 0.0);
 }
+
+footer ul {
+  list-style: none outside none;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.collapse header dd {
+  padding-right: 1em;
+}
+
+.collapse header dd:not(:last-child):after {
+  content: "/";
+  padding-left: 1em;
+}
