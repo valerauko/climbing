@@ -23,97 +23,25 @@
       <h1>{{ page.title }}</h1>
       <a href="https://support.erdos.tech/">{{ page.support }}</a>
     </header>
-    <div class="collapse-content">
-      <div class="collapse elbrus" id="elbrus">
+    <div class="collapse-content">{% for mountain in page.mountains %}
+      <div class="collapse {{ mountain.id }}" id="{{ mountain.id }}">
         <header>
-          <h2><a href="#elbrus">Elbrus</a></h2>
-          <dl>
-            <dt>Climbed</dt><dd><a href="https://blog.valerauko.net/tag/elbrus/">July 2019</a></dd>
-            <dt>Height</dt><dd>5696m</dd>
-            <dt>Continent</dt><dd>Europe</dd>
+          <h2><a href="#{{ mountain.id }}">{{ mountain.name }}</a></h2>
+          <dl>{% if mountain.climbed %}
+            <dt>Climbed</dt>
+              <dd>{% if mountain.climbed.blog %}
+                <a href="{{ mountain.climbed.blog }}">
+  {% endif %}                {{ mountain.climbed.date }}{% if mountain.climbed.blog %}
+                </a>{% endif %}
+              </dd>{% endif %}
+            <dt>Height</dt><dd>{{ mountain.height }}m</dd>
+            <dt>Continent</dt><dd>{{ mountain.location }}</dd>
           </dl>
-        </header>
+        </header>{% if mountain.text %}
         <div class="content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Nulla tincidunt lorem dolor, ac iaculis eros vestibulum at.
-            Pellentesque condimentum, diam et feugiat pellentesque,
-            nisl lacus faucibus lectus, vitae tincidunt tellus leo sed nibh.
-            Donec dapibus quam mi, eu lacinia est pulvinar nec.
-            Donec ac posuere augue, sit amet ultricies enim.</p>
-        </div>
-      </div>
-      <div class="collapse kilimanjaro" id="kilimanjaro">
-        <header>
-          <h2><a href="#kilimanjaro">Kilimanjaro</a></h2>
-          <dl>
-            <dt>Climbed</dt><dd>September 2019</dd>
-            <dt>Height</dt><dd>5895m</dd>
-            <dt>Continent</dt><dd>Africa</dd>
-          </dl>
-        </header>
-        <div class="content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Nulla tincidunt lorem dolor, ac iaculis eros vestibulum at.
-            Pellentesque condimentum, diam et feugiat pellentesque,
-            nisl lacus faucibus lectus, vitae tincidunt tellus leo sed nibh.
-            Donec dapibus quam mi, eu lacinia est pulvinar nec.
-            Donec ac posuere augue, sit amet ultricies enim.</p>
-        </div>
-      </div>
-      <div class="collapse aconcagua" id="aconcagua">
-        <header>
-          <h2><a href="#aconcagua">Aconcagua</a></h2>
-          <dl>
-            <dt>Climbed</dt><dd>February 2020</dd>
-            <dt>Height</dt><dd>6962m</dd>
-            <dt>Continent</dt><dd>South America</dd>
-          </dl>
-        </header>
-        <div class="content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Nulla tincidunt lorem dolor, ac iaculis eros vestibulum at.
-            Pellentesque condimentum, diam et feugiat pellentesque,
-            nisl lacus faucibus lectus, vitae tincidunt tellus leo sed nibh.
-            Donec dapibus quam mi, eu lacinia est pulvinar nec.
-            Donec ac posuere augue, sit amet ultricies enim.</p>
-        </div>
-      </div>
-      <div class="collapse carstenz" id="carstenz">
-        <header>
-          <h2>Puncak Jaya</h2>
-          <dl>
-            <dt>Height</dt><dd>4884m</dd>
-            <dt>Continent</dt><dd>Oceania</dd>
-          </dl>
-        </header>
-      </div>
-      <div class="collapse denali" id="denali">
-        <header>
-          <h2>Denali</h2>
-          <dl>
-            <dt>Height</dt><dd>6190m</dd>
-            <dt>Continent</dt><dd>North America</dd>
-          </dl>
-        </header>
-      </div>
-      <div class="collapse vinson" id="vinson">
-        <header>
-          <h2>Vinson</h2>
-          <dl>
-            <dt>Height</dt><dd>4892m</dd>
-            <dt>Continent</dt><dd>Antarctica</dd>
-          </dl>
-        </header>
-      </div>
-      <div class="collapse everest" id="everest">
-        <header>
-          <h2>Everest</h2>
-          <dl>
-            <dt>Height</dt><dd>8848m</dd>
-            <dt>Continent</dt><dd>Asia</dd>
-          </dl>
-        </header>
-      </div>
+          <p>{{ mountain.text }}</p>
+        </div>{% endif %}
+      </div>{% endfor %}
     </div>
     <footer>
       <ul>
