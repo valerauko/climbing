@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: climbing
+  labels:
+    app: climbing
+    role: static
+  annotations:
+    kubernetes.io/ingress.class: traefik
+spec:
+  tls:
+    - hosts:
+      - climbing.erdos.tech
+  rules:
+    - host: climbing.erdos.tech
+      http:
+        paths:
+          - backend:
+              serviceName: climbing
+              servicePort: http

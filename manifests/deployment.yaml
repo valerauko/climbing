@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jekyll-static
+  labels:
+    app: climbing
+    role: static
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: climbing
+      role: static
+  template:
+    metadata:
+      labels:
+        app: climbing
+        role: static
+    spec:
+      containers:
+        - name: climbing-static
+          image: valerauko/climbing:sha-e51b2ac
+          ports:
+            - name: http
+              containerPort: 80
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+            failureThreshold: 3
+            initialDelaySeconds: 30
+            periodSeconds: 30
+            successThreshold: 1
+            timeoutSeconds: 2
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+            failureThreshold: 5
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 5

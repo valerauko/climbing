@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: climbing
+  labels:
+    app: climbing
+    role: static
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    app: climbing
+    role: static
