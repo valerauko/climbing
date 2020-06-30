@@ -22,3 +22,13 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: valerauko/climbing
           tag_with_sha: true
+      - name: Update manifest
+        run: |
+          sed -i -r -e "s/(valerauko\/climbing:sha-)\w+/\1$(git rev-parse --short HEAD)/i" manifests/deployment.yaml
+      - name: Commit update
+        run: |
+          git config user.email "actions@github.com" && \
+          git config user.name "Github Action" && \
+          git add manifests/deployment.yaml && \
+          git commit -m "Update target image tag" && \
+          git push 
