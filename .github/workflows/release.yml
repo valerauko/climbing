@@ -2,7 +2,7 @@ name: Climbing static site release
 
 on:
   push:
-    branches: [ master ]
+    branches: [ action-test ]
 
 jobs:
   compile-and-release-site:
@@ -15,10 +15,13 @@ jobs:
           -e JEKYLL_UID=1001 -e JEKYLL_GID=116 \
           -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
           jekyll/builder:latest jekyll build --future
-      - name: Build Docker image
-        uses: docker/build-push-action@v1
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-          repository: valerauko/climbing
-          tag_with_sha: true
+#       - name: Build Docker image
+#         uses: docker/build-push-action@v1
+#         with:
+#           username: ${{ secrets.DOCKER_USERNAME }}
+#           password: ${{ secrets.DOCKER_PASSWORD }}
+#           repository: valerauko/climbing
+#           tag_with_sha: true
+      - name: Update manifest
+        run: |
+          sed -i -r -e "s/(valerauko\/climbing:sha-)\w+/\1$(git rev-parse --short HEAD)/i" manifests/deployment.yaml
