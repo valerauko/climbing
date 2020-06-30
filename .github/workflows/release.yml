@@ -17,4 +17,4 @@ jobs:
           jekyll/builder:latest jekyll build --future
       - name: Build Docker image
         run: |
-          docker build -t valerauko/climbing:$(git rev-parse --short HEAD)
+          docker build -t valerauko/climbing:$(git rev-parse --short HEAD) .
