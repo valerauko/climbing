@@ -9,8 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: id -u runner
-      - run: id -g runner
+      - run: echo "id -u: $(id -u runner)"
+      - run: echo "id -g: $(id -g runner)"
       - name: Build the site in the jekyll/builder container
         run: |
           docker run \
