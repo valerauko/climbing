@@ -11,6 +11,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Build the site in the jekyll/builder container
         run: |
-          JEKYLL_UID=1001 JEKYLL_GID=116 docker run \
+          docker run \
+          -e JEKYLL_UID=1001 -e JEKYLL_GID=116
           -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
           jekyll/builder:latest jekyll build --future
