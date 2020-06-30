@@ -2,13 +2,14 @@ name: Climbing static site release
 
 on:
   push:
-    branches: [ master ]
+    branches: [ action-test ]
 
 jobs:
   compile-and-release-site:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - run: ls -la
       - name: Build the site in the jekyll/builder container
         run: |
           docker run \
