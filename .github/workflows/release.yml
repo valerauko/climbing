@@ -2,7 +2,7 @@ name: Climbing static site release
 
 on:
   push:
-    branches: [ action-test ]
+    branches: [ master ]
 
 jobs:
   compile-and-release-site:
