@@ -25,3 +25,8 @@ jobs:
       - name: Update manifest
         run: |
           sed -i -r -e "s/(valerauko\/climbing:sha-)\w+/\1$(git rev-parse --short HEAD)/i" manifests/deployment.yaml
+      - name: Commit update
+        run: |
+          git add manifests/deployment.yaml && \
+          git commit -m "Update target image tag" && \
+          git push 
