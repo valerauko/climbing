@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: climbing-static
-          image: valerauko/climbing:sha-54a0cd6
+          image: valerauko/climbing:sha-5d7b8ed
           ports:
             - name: http
               containerPort: 80
