@@ -74,7 +74,7 @@ body > header {
 
 .collapse header dd {
   text-align: right;
-  padding-right: 0.8;
+  padding-right: 0.8em;
 }
 
 .collapse header dd:not(:last-child):after {
