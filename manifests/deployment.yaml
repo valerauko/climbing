@@ -26,7 +26,7 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
             - labelSelector:
                 matchLabels:
-                  app: valerauko.net
+                  app: climbing
                   role: static
               topologyKey: kubernetes.io/hostname
       containers:
