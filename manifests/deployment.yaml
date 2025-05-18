@@ -31,7 +31,7 @@ spec:
               topologyKey: kubernetes.io/hostname
       containers:
         - name: climbing-static
-          image: valerauko/climbing:sha-118a51d
+          image: valerauko/climbing:sha-0f1928f
           ports:
             - name: http
               containerPort: 80
