@@ -10,7 +10,8 @@ metadata:
 spec:
   tls:
     - hosts:
-      - climbing.erdos.tech
+        - climbing.erdos.tech
+      secretName: erdos-tech-tls
   rules:
     - host: climbing.erdos.tech
       http:
